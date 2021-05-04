@@ -1,0 +1,539 @@
+{
+	"info": {
+		"_postman_id": "34487846-ec9f-4abc-8ced-1717167fd0cf",
+		"name": "kkk",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "mutations",
+			"item": [
+				{
+					"name": "addUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "mutation addUser ($name: String!) {\n    addUser (name: $name) {\n        id\n        name\n    }\n}",
+								"variables": "{\n  \"name\": \"\"\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "queries",
+			"item": [
+				{
+					"name": "user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query user ($id: String) {\n    user (id: $id) {\n        id\n        name\n    }\n}",
+								"variables": "{\n  \"id\": \"\"\n}"
+							}
+						},
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CreateUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation{\n  createUser(input: {\n    phone:\"3483242\"\n    fname:\"mamoun\"\n    lname:\"Hourani\"\n    password:\"asdasd\"\n    \n  }){\n    fullname\n    phone\n    lname\n    Role\n    email\n    \n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://2ae7e68ccf18.ngrok.io/graphql",
+					"protocol": "https",
+					"host": [
+						"2ae7e68ccf18",
+						"ngrok",
+						"io"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updatemyuser info",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation{\n  updatemyuser(input: {fname:\"mamoussn\" lname:\"Hourani\" email:\"maak@hotmail.com\"}){\n      fname\n      lname\n      email\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/graphql",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find all users",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\n  users{\n    userid\n    fullname\n    phone\n    email\n    role\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://app-efb4de64-9fb3-402b-bca6-63d001c64b7b.cleverapps.io/graphql",
+					"protocol": "https",
+					"host": [
+						"app-efb4de64-9fb3-402b-bca6-63d001c64b7b",
+						"cleverapps",
+						"io"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "me",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\n  me{\n      userid\n      role\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://3fa122165b8c.ngrok.io/graphql",
+					"protocol": "https",
+					"host": [
+						"3fa122165b8c",
+						"ngrok",
+						"io"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all books",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\n  getallbooks{\n    isbn\n    title\n    edition\n    picurl\n    authorid\n    language\n    discribtion\n    price\n    localprice\n    tag\n    buycount\n    viewcount\n\nAuthor{\n    authorname\n    authorid\n}\nCategory{\n    name\n}\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://app-efb4de64-9fb3-402b-bca6-63d001c64b7b.cleverapps.io/graphql",
+					"protocol": "https",
+					"host": [
+						"app-efb4de64-9fb3-402b-bca6-63d001c64b7b",
+						"cleverapps",
+						"io"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getbooks by author",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\n  getBooksbyAuthor(input:{\n      authorid:\"14\"\n  }){\ntitle\nAuthor{\n    authorname\n    authorid\n}\nCategory{\n    name\n}\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://app-efb4de64-9fb3-402b-bca6-63d001c64b7b.cleverapps.io/graphql",
+					"protocol": "https",
+					"host": [
+						"app-efb4de64-9fb3-402b-bca6-63d001c64b7b",
+						"cleverapps",
+						"io"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create book",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation{\n  FindorCreateBook(input:{\n     isbn: \"2241233\",\n    title: \"how to be an ass\",\n    authorid: \"14\",\n    language: \"ar\",\n    price: \"4\",\n  }){\n    isbn\n    title\n    \n    publishedate\n    edition\n    picurl\n    language\n    discribtion\n    price\n    localprice\n    tag\n    buycount\n    viewcount\n    categoryid\n    authorid\n \n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/graphql",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bulk create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation{\n  c1:FindorCreateBook(input:{\n     isbn: \"2241233\",\n    title: \"how to be an ass\",\n    authorid: \"14\",\n    language: \"ar\",\n    price: \"4\",\n  }){\n    isbn\n  }\n  c2:FindorCreateBook(input:{\n     isbn: \"2241233\",\n    title: \"how to be an ass\",\n    authorid: \"14\",\n    language: \"ar\",\n    price: \"4\",\n  }){\n    isbn\n  }  c3:FindorCreateBook(input:{\n     isbn: \"2241233\",\n    title: \"how to be an ass\",\n    authorid: \"14\",\n    language: \"ar\",\n    price: \"4\",\n  }){\n    isbn\n  }  c4:FindorCreateBook(input:{\n     isbn: \"2241233\",\n    title: \"how to be an ass\",\n    authorid: \"14\",\n    language: \"ar\",\n    price: \"4\",\n  }){\n    isbn\n  }  c5:FindorCreateBook(input:{\n     isbn: \"2241233\",\n    title: \"how to be an ass\",\n    authorid: \"14\",\n    language: \"ar\",\n    price: \"4\",\n  }){\n    isbn\n  }\n  \n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/graphql",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create book req",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation{\n  createBookReq(input:{\nbooktitle: \"book of love\"\n    bookauther: \"love of book\"\n    status:1\n  }){\n   bookreqid\n    userid\n    status\n    booktitle\n    bookauther\n    User{\n        fullname\n    }\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/graphql",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createauthor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation{\n  FindorCreateAuthor(input:{\n    authorname:\"نيكولاس خوري\"\n  }){\nauthorid\nauthorname\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/graphql",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getallAuthers",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\n  getallAuthers{\nauthorid\nauthorname\nbookscount\nBooks{\n       isbn\n    title\n    edition\n    picurl\n    authorid\n    language\n    discribtion\n    price\n    localprice\n    tag\n    buycount\n    viewcount\n}\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://app-efb4de64-9fb3-402b-bca6-63d001c64b7b.cleverapps.io/graphql",
+					"protocol": "https",
+					"host": [
+						"app-efb4de64-9fb3-402b-bca6-63d001c64b7b",
+						"cleverapps",
+						"io"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAutherbypk",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\n  c1:getAutherbypk(authorid:\"14\"){\nauthorname\nbookscount\nBooks {\n    isbn\n    title\n    \n}\n  }\n  c2:getAutherbypk(authorid:\"16\"){\nauthorname\nbookscount\nBooks {\n    isbn\n    title\n    \n}\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://app-efb4de64-9fb3-402b-bca6-63d001c64b7b.cleverapps.io/graphql",
+					"protocol": "https",
+					"host": [
+						"app-efb4de64-9fb3-402b-bca6-63d001c64b7b",
+						"cleverapps",
+						"io"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getBookby PK",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query{\n  getBookbypk(isbn:\"5123213\"){\nisbn\ntitle\nAuthor {\n    authorname\n}\nCategory{\n    categoryid\n}\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/graphql",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit author",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation{\n  EditAuthor(input:{\n    authorid:\"14\"\n    about:\"asdassssjjd\"\n  }){\n      authorid\n      authorname\n      about\n      picurl\n      country\n      bookscount\n      Books{\n          title\n      }\n\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/graphql",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Author",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation{\n  deleteAuthor(input:{\n    authorid:\"13\"\n  })\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://app-efb4de64-9fb3-402b-bca6-63d001c64b7b.cleverapps.io/graphql",
+					"protocol": "https",
+					"host": [
+						"app-efb4de64-9fb3-402b-bca6-63d001c64b7b",
+						"cleverapps",
+						"io"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit bookreq",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation{\n  EditBookReq(input:{\n      bookreqid: \"3\"\nbooktitle: \"boosadak of love\"\n    bookauther: \"love of book\"\n    status:1\n    \n  }){\n   bookreqid\n    userid\n    status\n    booktitle\n    bookauther\n    User{\n        userid\n        fullname\n    }\n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://app-efb4de64-9fb3-402b-bca6-63d001c64b7b.cleverapps.io/graphql",
+					"protocol": "https",
+					"host": [
+						"app-efb4de64-9fb3-402b-bca6-63d001c64b7b",
+						"cleverapps",
+						"io"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation{\n  login(input: {\n    phone:\"3483242\"\n    password:\"asdasd\"\n    \n  }){\n    fullname\n    phone\n    lname\n    role\n    email\n    \n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/graphql",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation{\n  logout {\nuserid\n    \n  }\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://app-efb4de64-9fb3-402b-bca6-63d001c64b7b.cleverapps.io/graphql",
+					"protocol": "https",
+					"host": [
+						"app-efb4de64-9fb3-402b-bca6-63d001c64b7b",
+						"cleverapps",
+						"io"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "",
+			"type": "any",
+			"description": "URL for the request."
+		}
+	]
+}
