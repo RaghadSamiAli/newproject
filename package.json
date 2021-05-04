@@ -1,0 +1,60 @@
+{
+  "name": "ecommerce-bookshop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maamoon95/ecommerce-bookshop.git"
+  },
+  "author": "MamounHourani",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/client": "^3.3.16",
+    "alert": "^5.0.10",
+    "apollo-server": "^2.22.2",
+    "apollo-server-express": "^2.22.2",
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "connect-session-sequelize": "^7.1.1",
+    "cookie-parser": "^1.4.5",
+    "cookie-session": "^1.4.0",
+    "cookies": "^0.8.0",
+    "crypt": "0.0.2",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.6",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "express-flash": "git://github.com/RGBboy/express-flash.git",
+    "express-handlebars": "^5.2.1",
+    "express-session": "^1.17.1",
+    "geolib": "^3.3.1",
+    "geopoint": "^1.0.1",
+    "graphql": "^15.5.0",
+    "graphql-resolvers": "^0.4.2",
+    "js-alert": "^1.0.4",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.21",
+    "method-override": "^3.0.0",
+    "moment": "^2.29.1",
+    "mongoose": "^5.12.1",
+    "morgan": "^1.10.0",
+    "mysql2": "^2.2.5",
+    "nodemon": "^2.0.7",
+    "popups": "^1.1.3",
+    "postman-request": "^2.88.1-postman.30",
+    "request": "^2.88.2",
+    "sequelize": "^6.6.2",
+    "uuid": "^8.3.2"
+  },
+  "bugs": {
+    "url": "https://github.com/maamoon95/ecommerce-bookshop/issues"
+  },
+  "homepage": "https://github.com/maamoon95/ecommerce-bookshop#readme"
+}

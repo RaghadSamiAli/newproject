@@ -1,0 +1,563 @@
+
+  # -----------------------------------------------
+  # TYPES
+  # -----------------------------------------------
+  type Author {
+    authorid: ID
+    authorname: String
+    about: String
+    picurl: String
+    country: String
+    bookscount: String
+    Books:  [Book]
+  }
+  # -----------------------------------------------
+  # QUERIES
+  # -----------------------------------------------
+  extend type Query {
+    getallAuthers:[Author]
+ getAutherbyid(input: AuthoridInput!): Author
+ getAutherbypk(authorid:ID):Author
+ 
+  }
+  # -----------------------------------------------
+  # MUTATIONS
+  # -----------------------------------------------
+  extend type Mutation {
+    FindorCreateAuthor(input: CreateAuthorInput!): Author!
+    EditAuthor(input: EditAuthorInput!): Author
+    deleteAuthor(input: AuthoridInput!): Boolean!
+  }
+  # -----------------------------------------------
+  # INPUT
+  # -----------------------------------------------
+  input AuthoridInput{
+    authorid: ID!
+  }
+  input CreateAuthorInput {
+    authorname: String!
+    about: String
+    picurl: String
+    country: String
+  }
+  input EditAuthorInput{
+    authorid: ID!
+    authorname: String
+    about: String
+    picurl: String
+    country: String
+  }
+  input deleteAuthorInput{
+    authorid: ID! 
+  }
+
+    # -----------------------------------------------
+  # TYPES
+  # -----------------------------------------------
+
+  type Book {
+    isbn: ID!
+    title: String!
+    publishedate: String
+    edition: String
+    picurl: String 
+    authorid: ID!
+    language: String!
+    discribtion: String
+    price: String!
+    localprice: String
+    tag: String
+    buycount:String
+    viewcount:String
+    categoryid: ID
+   Category: Category 
+    Author: Author
+  }
+
+  
+  # -----------------------------------------------
+  # QUERIES
+  # -----------------------------------------------
+  extend type Query {
+    getallbooks: [Book!]
+   getBooksbyAuthor(input: deleteAuthorInput!):[Book]
+   BooksIordered:[Book]
+   bookspriceIstimator(isbn:[ID]!):String!
+   getBookbypk(isbn:ID!):Book
+   getBooksbyAuthorid(authorid:ID!):[Book]
+  }
+  # -----------------------------------------------
+  # MUTATIONS
+  # -----------------------------------------------
+  extend type Mutation {
+    FindorCreateBook(input: createBookInput!): Book!
+    EditBook(input: EditBookInput!): Book!
+    deleteBook(input: isbnInput!): Boolean!
+  }
+  # -----------------------------------------------
+  # INPUT
+  # -----------------------------------------------
+  input createBookInput {
+    isbn: ID!
+    title: String!
+    authorid: ID!
+    publishedate: String
+    edition: String
+    picurl: String 
+    language: String!
+    discribtion: String
+    price: String!
+    localprice: String
+    tag: String
+    categoryid: ID
+  }
+  input EditBookInput{
+    isbn: ID!
+    title: String
+    authorid: ID!
+    publishedate: String
+    edition: String
+    picurl: String 
+    language: String
+    discribtion: String
+    price: String
+    localprice: String
+    tag: String
+    categoryid: ID
+  }
+input isbnInput{
+  isbn: ID!
+}
+
+  # -----------------------------------------------
+  # TYPES
+  # -----------------------------------------------
+  type Bookreq {
+    bookreqid: ID
+    userid: ID!
+    status: Int
+    booktitle: String!
+    bookauther: String!
+    User: User
+  }
+  # -----------------------------------------------
+  # QUERIES
+  # -----------------------------------------------
+  extend type Query {
+ getBookreqs:[Bookreq]
+ getBookreqbyid(bookreqid:ID!):Bookreq!
+ getBookreqByUser(userid:ID!):[Bookreq]
+  }
+  # -----------------------------------------------
+  # MUTATIONS
+  # -----------------------------------------------
+  extend type Mutation {
+    createBookReq(input: createBookReqInput!): Bookreq!
+    EditBookReq(input: EditBookReqInput!): Bookreq!
+    deleteBookReq(bookreqid:ID!): Boolean!
+    approveBookReq(bookreqid:ID!): Boolean!
+  }
+  # -----------------------------------------------
+  # INPUT
+  # -----------------------------------------------
+input createBookReqInput{
+  userid: ID
+    status: Int
+    booktitle: String!
+    bookauther: String!
+}
+input EditBookReqInput{
+  bookreqid:ID!
+  status: Int
+    booktitle: String
+    bookauther: String
+}
+
+# -----------------------------------------------
+  # TYPES
+  # -----------------------------------------------
+  type Category {
+    categoryid: ID
+    name: String!
+    bannerpic: String
+
+  }
+  # -----------------------------------------------
+  # QUERIES
+  # -----------------------------------------------
+  extend type Query {
+ getCategories: [Category]!
+ getCategoryByName(categoryname:String!):Category!
+ getCategoryById(categoryid:ID!):Category!
+  }
+  # -----------------------------------------------
+  # MUTATIONS
+  # -----------------------------------------------
+  extend type Mutation {
+    createCategory(input: createCategoryInput!): Category!
+    EditCategory(input: EditCategoryInput!): Boolean!
+    deleteCategory(categoryid:ID!): Boolean!
+  }
+  # -----------------------------------------------
+  # INPUT
+  # -----------------------------------------------
+input createCategoryInput{
+    categoryid: ID
+    name: String!
+    bannerpic: String
+}
+input EditCategoryInput{
+    categoryid: ID!
+    name: String
+    bannerpic: String
+}
+
+  # -----------------------------------------------
+  # TYPES
+  # -----------------------------------------------
+  type Coupone {
+    userid: ID
+    fullname: String
+    phone: String!
+    fname: String!
+    lname: String!
+    email: String 
+    Role: Int
+
+  }
+  # -----------------------------------------------
+  # QUERIES
+  # -----------------------------------------------
+  extend type Query {
+ getCoupones: [Coupone]!
+  }
+  # -----------------------------------------------
+  # MUTATIONS
+  # -----------------------------------------------
+
+  # -----------------------------------------------
+  # INPUT
+  # -----------------------------------------------
+
+# -----------------------------------------------
+  # TYPES
+  # -----------------------------------------------
+  type Faq {
+    faqid: ID
+    question: String!
+    answer: String!
+
+  }
+  # -----------------------------------------------
+  # QUERIES
+  # -----------------------------------------------
+  extend type Query {
+ getFaqs: [Faq]!
+ getFaqById(faqid:ID!):Faq!
+  }
+  
+  # -----------------------------------------------
+  # MUTATIONS
+  # -----------------------------------------------
+  extend type Mutation {
+    createFaq(input: createFaqInput!): Category!
+    EditFaq(input: EditFaqInput!): Boolean!
+    deleteFaq(faqid:ID!): Boolean!
+  }
+  # -----------------------------------------------
+  # INPUT
+  # -----------------------------------------------
+input createFaqInput{
+  question: String!
+    answer: String!
+}
+input EditFaqInput{
+    faqid: ID!
+    question: String
+    answer: String
+}
+
+ # -----------------------------------------------
+  # TYPES
+  # -----------------------------------------------
+
+  type Item {
+    itemid: ID
+    orderid: ID!
+    userid: ID!
+    isbn: ID!
+    title: String 
+    picurl: String
+    price: Int!
+    status: Int
+    User: User
+    Order: Order
+    Book: Book
+  }
+
+  
+  # -----------------------------------------------
+  # QUERIES
+  # -----------------------------------------------
+  extend type Query {
+    getallItems: [Item]
+   getItembyispn: Item
+   getItemsbyAuthor(input: deleteAuthorInput!):[Item]
+   ItemsIordered:[Item]
+   ItemspriceIstimator(isbn:[ID]!):String!
+   getItembypk(isbn:ID!):Item
+   getItemsbyAuthorid(authorid:ID!):[Item]
+  }
+  # -----------------------------------------------
+  # MUTATIONS
+  # -----------------------------------------------
+  extend type Mutation {
+    FindorCreateItem(input: createItemInput!): Item!
+    EditItem(input: EditItemInput!): Item!
+    deleteItem(input: isbnInput!): Boolean!
+  }
+  # -----------------------------------------------
+  # INPUT
+  # -----------------------------------------------
+  input createItemInput {
+    isbn: ID!
+    title: String!
+    authorid: ID!
+    publishedate: String
+    edition: String
+    picurl: String 
+    language: String!
+    discribtion: String
+    price: String!
+    localprice: String
+    tag: String
+    categoryid: ID
+  }
+  input EditItemInput{
+    isbn: ID!
+    title: String
+    authorid: ID!
+    publishedate: String
+    edition: String
+    picurl: String 
+    language: String
+    discribtion: String
+    price: String
+    localprice: String
+    tag: String
+    categoryid: ID
+  }
+
+   # -----------------------------------------------
+  # TYPES
+  # -----------------------------------------------
+  type Language {
+    langid: ID
+    local: String!
+    name: String
+    dir:String!
+  }
+  # -----------------------------------------------
+  # QUERIES
+  # -----------------------------------------------
+  extend type Query {
+   getLanguagebylangid(langid:ID!): Language!
+   getLanguagebylocal(langid:String!):Language!
+  }
+  # -----------------------------------------------
+  # MUTATIONS
+  # -----------------------------------------------
+  extend type Mutation {
+    createLanguage(input: createLanguageInput!): Language!
+    EditLanguage(input: EditLanguageInput!): Boolean!
+    deleteLanguagebyid(langid:ID!): Boolean!
+    deleteLanguagebylocal(local:String!): Boolean!
+  }
+  # -----------------------------------------------
+  # INPUT
+  # -----------------------------------------------
+  input createLanguageInput{
+    local: String!
+    name: String
+    dir:String!
+  }
+  input EditLanguageInput{
+    langid: ID!
+    local: String
+    name: String
+    dir:String
+  }
+
+  # -----------------------------------------------
+  # TYPES
+  # -----------------------------------------------
+  type Order {
+    orderid: ID
+    userid: ID!
+    booksispn: [Book]!
+    shippingid: Shippingadd!
+    status: Int!
+    productscosts: Int! 
+    shippingcost: Int!
+    totalprice:Int
+  }
+  # -----------------------------------------------
+  # QUERIES
+  # -----------------------------------------------
+  extend type Query {
+   getallOrders: [Order]!
+   getMyOrders(userid:ID!):[Order]!
+  }
+  # -----------------------------------------------
+  # MUTATIONS
+  # -----------------------------------------------
+  extend type Mutation {
+    createorder(input: CreateorderInput!): Order!
+    createorderByAdmin(input: CreateorderByAdminInput!): Order!
+    deleteorderByID(orderid:ID!): Boolean!
+    editorderByAdmin(input:EditOrderByAdminInput!): Boolean!
+    editmyorder(input:EditMyorderInput!): Boolean!
+  }
+  # -----------------------------------------------
+  # INPUT
+  # -----------------------------------------------
+  input CreateorderByAdminInput{
+    orderid: ID
+    userid: ID!
+    booksispn: [ID]!
+    shippingid: ID!
+    status: Int!
+    productscosts: Int! 
+    shippingcost: Int!
+    totalprice:Int
+  }
+  input CreateorderInput{
+    orderid: ID
+    userid: ID!
+    booksispn: [ID]!
+    shippingid: ID!
+    status: Int!
+    productscosts: Int! 
+    shippingcost: Int!
+    totalprice:Int
+  }
+  input EditOrderByAdminInput{
+    orderid: ID!
+    userid: ID
+    booksispn: [ID]
+    shippingid: ID
+    status: Int
+    productscosts: Int
+    shippingcost: Int
+    totalprice:Int
+  }
+  input EditMyorderInput{
+    orderid: ID!
+    userid: ID!
+    booksispn: [ID]
+    shippingid: ID
+    productscosts: Int
+    shippingcost: Int
+    totalprice:Int
+  }
+
+    # -----------------------------------------------
+  # TYPES
+  # -----------------------------------------------
+  type Shippingadd {
+    shippingid: ID
+    title: String! 
+    point: String
+    price: Int
+  }
+  # -----------------------------------------------
+  # QUERIES
+  # -----------------------------------------------
+  extend type Query {
+   getallShippingadd: [Shippingadd]!
+   getShippingprice:String!
+  }
+  # -----------------------------------------------
+  # MUTATIONS
+  # -----------------------------------------------
+  extend type Mutation {
+    createShippingadd(input: CreateShippingInput!): Shippingadd!
+    EditShippingadd(input: EditShippingInput!): Boolean!
+    deleteShippingaddByID(shippingid:ID!): Boolean!
+  }
+  # -----------------------------------------------
+  # INPUT
+  # -----------------------------------------------
+ input CreateShippingInput{
+    shippingid: ID
+    title: String! 
+    point: String
+    price: Int
+ }
+input EditShippingInput{
+  shippingid: ID!
+    title: String
+    point: String
+    price: Int
+}
+
+ # -----------------------------------------------
+  # TYPES
+  # -----------------------------------------------
+  type User {
+    userid: ID
+    fullname: String
+    phone: String!
+    fname: String!
+    lname: String!
+    email: String 
+    role: Int
+    Profile: Profile
+    Orders: [Order]
+    Items: [Item]
+    Notifications: [Notification]
+    Bookreqs: [Bookreq]
+  }
+  # -----------------------------------------------
+  # QUERIES
+  # -----------------------------------------------
+  extend type Query {
+    me: User
+    users: [User!]
+    isLoggedIn: Boolean!
+  }
+  # -----------------------------------------------
+  # MUTATIONS
+  # -----------------------------------------------
+  extend type Mutation {
+    createUser(input: CreateUserInput!): User!
+    login(input: LoginInput!): User!
+    logout: User!
+    deleteUser(input: deleteUserInput!): User!
+    updatemyuser(input: UpdateUserInput!): User!
+  }
+  # -----------------------------------------------
+  # INPUT
+  # -----------------------------------------------
+  input CreateUserInput {
+    phone: String!
+    fname: String!
+    lname: String!
+    password: String!
+    email: String
+  }
+  input UpdateUserInput{
+    phone: String
+    fname: String
+    lname: String
+    password: String
+    email: String
+  }
+  input LoginInput{
+    phone: String!
+    password: String!
+  }
+  input deleteUserInput{
+    userid: ID! 
+    phone: String!
+  }
